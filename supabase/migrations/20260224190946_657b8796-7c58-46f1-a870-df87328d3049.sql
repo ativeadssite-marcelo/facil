@@ -1,0 +1,1 @@
+INSERT INTO configuracoes (chave, valor) VALUES ('comissao_percentual', '5') ON CONFLICT DO NOTHING;

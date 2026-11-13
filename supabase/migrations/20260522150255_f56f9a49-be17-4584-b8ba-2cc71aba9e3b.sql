@@ -1,0 +1,1 @@
+UPDATE auth.users SET banned_until = NULL WHERE email IN ('garagemhub.contato@gmail.com','contato.garagemhub@gmail.com','marcelo.dpkmotos@gmail.com');

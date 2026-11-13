@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 13% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+
+    /* Orange brand */
+    --primary: 24 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 24 100% 44%;
+    --primary-light: 24 100% 96%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 30%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 54%;
+
+    --accent: 24 100% 96%;
+    --accent-foreground: 24 100% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 142 71% 94%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 38 92% 94%;
+
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+    --info-light: 199 89% 94%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 24 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 220 13% 12%;
+    --sidebar-foreground: 220 9% 70%;
+    --sidebar-primary: 24 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 13% 18%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 13% 20%;
+    --sidebar-ring: 24 100% 50%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(24 100% 50%), hsl(16 100% 55%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(220 14% 98%));
+    --shadow-sm: 0 1px 3px 0 hsl(220 13% 18% / 0.08);
+    --shadow-md: 0 4px 12px -2px hsl(220 13% 18% / 0.10);
+    --shadow-lg: 0 10px 30px -5px hsl(220 13% 18% / 0.12);
+    --shadow-orange: 0 4px 20px -4px hsl(24 100% 50% / 0.35);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .sidebar-nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-md text-sm font-medium transition-all duration-150 cursor-pointer;
+    color: hsl(var(--sidebar-foreground));
+  }
+  .sidebar-nav-item:hover {
+    background: hsl(var(--sidebar-accent));
+    color: hsl(var(--sidebar-accent-foreground));
+  }
+  .sidebar-nav-item.active {
+    background: hsl(var(--primary) / 0.15);
+    color: hsl(var(--primary));
+    font-weight: 600;
+  }
+  .sidebar-nav-item.active svg {
+    color: hsl(var(--primary));
+  }
+
+  .kpi-card {
+    @apply relative overflow-hidden rounded-xl border p-5 transition-all duration-200;
+    background: hsl(var(--card));
+    box-shadow: var(--shadow-sm);
+  }
+  .kpi-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+
+  .data-table {
+    @apply w-full text-sm;
+  }
+  .data-table thead tr {
+    @apply border-b;
+    background: hsl(var(--muted));
+  }
+  .data-table thead th {
+    @apply px-4 py-3 text-left font-semibold;
+    color: hsl(var(--muted-foreground));
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .data-table tbody tr {
+    @apply border-b transition-colors duration-100 cursor-pointer;
+  }
+  .data-table tbody tr:hover {
+    background: hsl(var(--primary-light));
+  }
+  .data-table tbody td {
+    @apply px-4 py-3.5;
+  }
+  .data-table tbody tr:last-child {
+    @apply border-0;
+  }
+
+  .badge-orange {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+    background: hsl(var(--primary-light));
+    color: hsl(var(--primary));
+  }
+  .badge-green {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+    background: hsl(var(--success-light));
+    color: hsl(var(--success));
+  }
+  .badge-red {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+    background: hsl(var(--destructive) / 0.12);
+    color: hsl(var(--destructive));
+  }
+  .badge-gray {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+    background: hsl(var(--muted));
+    color: hsl(var(--muted-foreground));
+  }
+  .badge-warning {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+    background: hsl(var(--warning-light));
+    color: hsl(var(--warning));
+  }
+}

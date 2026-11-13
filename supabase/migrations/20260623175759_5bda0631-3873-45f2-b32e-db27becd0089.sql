@@ -1,0 +1,1 @@
+ALTER TABLE public.orcamentos ADD COLUMN IF NOT EXISTS simulacoes_custo jsonb NOT NULL DEFAULT '[]'::jsonb;

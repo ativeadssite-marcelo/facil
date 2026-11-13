@@ -1,0 +1,6 @@
+
+ALTER TABLE public.produtos
+  ADD COLUMN icms_percentual NUMERIC NOT NULL DEFAULT 0,
+  ADD COLUMN ipi_percentual NUMERIC NOT NULL DEFAULT 0,
+  ADD COLUMN pis_percentual NUMERIC NOT NULL DEFAULT 0,
+  ADD COLUMN cofins_percentual NUMERIC NOT NULL DEFAULT 0;
